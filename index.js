@@ -220,7 +220,7 @@ if (!('setWelcome' in chats)) chats.setWelcome = ''
 if (!('setLeave' in chats)) chats.setLeave = ''
 } else global.db.data.chats[m.chat] = {
 name: groupName || pushname,
-mute: true,
+mute: false,
 antivirus: true,
 antionce: true,
 setWelcome: '',
