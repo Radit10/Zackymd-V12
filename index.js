@@ -191,8 +191,11 @@ module.exports = alpha = async (alpha, m, chatUpdate, store, reSize) => {
 		const reply = async (teks) => {
 			return alpha.sendMessage(m.chat, { text: teks, contextInfo:{ externalAdReply: { showAdAttribution: true, title: `Selamat ${salam} ${pushname}`, body: `${ownername}`, previewType: "PHOTO", thumbnailUrl: ``, thumbnail: fs.readFileSync('./image/lol.jpg'), sourceUrl: `${myweb}`}}}, { quoted: m})			
 		}
-		const sendAudio = async (url) => {		
+		const sendAudio = async (url) => {
 		    return alpha.sendMessage(m.chat, { audio: { url: url }, mimetype: 'audio/mp4', ptt: true, contextInfo:{ externalAdReply: { showAdAttribution: true, title: `Contoh Anak Kontol ${pushname}`, body: `${ownername}`, previewType: "PHOTO", thumbnailUrl: ppuser, thumbnail: '', sourceUrl: `${myweb}`}}}, {quoted:m})
+		}
+		const sendReact = async (emoji) => { //await sendReact("📋")
+            return alpha.sendMessage(m.chat, { react: { text: emoji, key: m.key }})
 		}
 		
 		// DATABASE
@@ -1006,6 +1009,7 @@ if (!m.isGroup) return reply(lang.groupOnly())
             }
             break
             case 'ping': case 'tes': case 'runtime':
+            await sendReact("⏳")
             reply(`Runtime : ${runtime(process.uptime())}`)
             break
             case 'botstatus': case 'statusbot': { //punya gw
@@ -1043,6 +1047,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'owner': case 'creator': {
+                await sendReact("👑") //punya gw
                 alpha.sendContact(m.chat, global.owner, m)
             }
             break
@@ -1106,6 +1111,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
           }
         ]
+        await sendReact("💰")
         await alpha.send5ButImg(from, lang.tos(ownernomer) , `© ${ownername}`,qris, but , { userJid: m.chat, quoted: m })
     }
  break
@@ -1780,13 +1786,7 @@ break
 		}
             break
 				case 'menu':{
-			 const reactionMessage = { //punya gw
-             react: {
-                    text: "🤠",
-                    key: m.key
-                    }
-             }
-             const sendMsg = await alpha.sendMessage(m.chat, reactionMessage)
+			 await sendReact("🤠")
 					try{
 			hit_total = await fetchJson('https://api.countapi.xyz/hit/api-alphabot.herokuapp.com/visits')
 			} catch {
@@ -1843,6 +1843,7 @@ const buttojns = [
 					}
 					break    
 	case 'allmenu':{
+	        await sendReact("📋")
 			await alpha.send5ButLoc(from, `Hai kak ${pushname} 👋, saya *${botname}* ` + '\n\n' + lang.listMenu(time, salam, pushname, prefix) , `© ${ownername}`,pp_bot, [{"urlButton": {"displayText": "YouTube Creator","url": `${youtube}`}},{"urlButton": {"displayText": "Rest Api's","url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner","id": 'owner'}},{"quickReplyButton": {"displayText": "Rules","id": 'rules'}}] )
 		}
 	break   
