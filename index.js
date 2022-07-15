@@ -339,10 +339,10 @@ alpha.relayMessage(jid, order.message, { messageId: order.key.id})
         	reply(`「 *BUGGC TERDETEKSI* 」\n\nKamu akan dikeluarkan dari group\n*${groupMetadata.subject}*`).then(async res => 
 			await alpha.groupParticipantsUpdate(m.chat, [sender], 'remove'))
 			alpha.updateBlockStatus(sender, 'block')*/
-		} else if (m.mtype === 'extendedTextMessage') {
+		/*} else if (m.mtype === 'extendedTextMessage') { // Pesan biasa
         	reply(`「 *VIRWEB TERDETEKSI* 」\n\nKamu akan dikeluarkan dari group\n*${groupMetadata.subject}*`).then(async res => 
 			await alpha.groupParticipantsUpdate(m.chat, [sender], 'remove'))
-			alpha.updateBlockStatus(sender, 'block')
+			alpha.updateBlockStatus(sender, 'block')*/
 	    } else if (budy.length > 1000) {
         	reply(`「 *VIRTEX TERDETEKSI* 」\n\nKamu akan dikeluarkan dari group\n*${groupMetadata.subject}*`).then(async res => 
 			await alpha.groupParticipantsUpdate(m.chat, [sender], 'remove'))
