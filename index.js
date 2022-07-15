@@ -213,7 +213,7 @@ let chats = global.db.data.chats[m.chat] //punya gw
 if (typeof chats !== 'object') global.db.data.chats[m.chat] = {}
 if (chats) {
 if (!('name' in chats)) chats.name = groupName || pushname
-if (!('mute' in chats)) chats.mute = true
+if (!('mute' in chats)) chats.mute = false
 if (!('antivirus' in chats)) chats.antivirus = true
 if (!('antionce' in chats)) chats.antionce = true
 if (!('setWelcome' in chats)) chats.setWelcome = ''
@@ -230,7 +230,7 @@ setLeave: '',
 let setting = global.db.data.settings[botNumber]
 if (typeof setting !== 'object') global.db.data.settings[botNumber] = {}
 if (setting) {
-if (!('autobio' in setting)) setting.autobio = true
+if (!('autobio' in setting)) setting.autobio = false
 if (!('available' in setting)) setting.available = false
 if (!('composing' in setting)) setting.composing = false
 if (!('recording' in setting)) setting.recording = false
