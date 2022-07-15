@@ -233,13 +233,11 @@ setLeave: '',
 let setting = global.db.data.settings[botNumber]
 if (typeof setting !== 'object') global.db.data.settings[botNumber] = {}
 if (setting) {
-if (!('autobio' in setting)) setting.autobio = true
 if (!('available' in setting)) setting.available = false
 if (!('composing' in setting)) setting.composing = false
 if (!('recording' in setting)) setting.recording = false
 if (!('autorespond' in setting)) setting.autorespond = false
 } else global.db.data.settings[botNumber] = {
-autobio: true,
 available: false,
 composing: false,
 recording: false,
@@ -422,7 +420,7 @@ alpha.relayMessage(jid, order.message, { messageId: order.key.id})
         }
 
         // Auto Bio \\
-    	if (isCmd && autobio) {
+    	if (m.message && autobio) {
 	       await alpha.setStatus(`${botname} | Runtime : ${runtime(process.uptime())} | ${alpha.public ? 'Public-Mode' : 'Self-Mode'} | Prefix : Multi-Prefix`)
 		}
         
