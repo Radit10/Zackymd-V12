@@ -233,7 +233,7 @@ setLeave: '',
 let setting = global.db.data.settings[botNumber]
 if (typeof setting !== 'object') global.db.data.settings[botNumber] = {}
 if (setting) {
-if (!('autobio' in setting)) setting.autobio = false
+if (!('autobio' in setting)) setting.autobio = true
 if (!('available' in setting)) setting.available = false
 if (!('composing' in setting)) setting.composing = false
 if (!('recording' in setting)) setting.recording = false
