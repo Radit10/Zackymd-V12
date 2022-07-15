@@ -1959,10 +1959,10 @@ case 'thanksto': case 'tqto':{
  alpha.sendButImage(m.chat, sender, [{buttonId: '.command',buttonText:{displayText: '༺ Back'},type: 1},{buttonId:'owner',buttonText: {displayText:'Owner ༻'}, type: 1}], `Selamat ${salam} @${sender.split('@')[0]} 😊\n\n╭─⬣「 _*INFO BOT*_ 」⬣\n│ *Prefix* :  ${prefix} \n│ *Name* : ${botname}\n│ *Owner* : @${ownernomer.split("@")[0]}\n│ *Mode* : ${alpha.public ? 'Public-Mode' : 'Self-Mode'}\n│ *Runtime* : ${runtime(process.uptime())}\n│ *Lib* : Baileys-Md@4.0.0\n╰─⬣` + '\n\n' +  lang.tqto(), `© ${ownername}`, [sender, ownernomer + '@s.whatsapp.net'], {quoted:m})
          }
 break 
-case 'take':case 'wm':{
+case 'take':case 'wm':{ //punya gw
 if (!quoted) return reply(lang.NoToStik(prefix, command))
 if (!text) return reply(lang.NoWm(prefix, command))
-if (!text.includes('|')) return reply(lang.NoWm(prefix, command))
+//if (!text.includes('|')) return reply(lang.NoWm(prefix, command))
 if (/image/.test(mime)) {
 let media = await quoted.download()
 let encmedia = await alpha.sendImageAsSticker(m.chat, media, m, { packname: text.split("|")[0], author: text.split("|")[1] })
