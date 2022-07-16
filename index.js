@@ -216,14 +216,14 @@ let chats = global.db.data.chats[m.chat] //punya gw
 if (typeof chats !== 'object') global.db.data.chats[m.chat] = {}
 if (chats) {
 if (!('name' in chats)) chats.name = groupName || pushname
-if (!('mute' in chats)) chats.mute = false
+if (!('mute' in chats)) chats.mute = true
 if (!('antivirus' in chats)) chats.antivirus = true
 if (!('antionce' in chats)) chats.antionce = true
 if (!('setWelcome' in chats)) chats.setWelcome = ''
 if (!('setLeave' in chats)) chats.setLeave = ''
 } else global.db.data.chats[m.chat] = {
 name: groupName || pushname,
-mute: false,
+mute: true,
 antivirus: true,
 antionce: true,
 setWelcome: '',
